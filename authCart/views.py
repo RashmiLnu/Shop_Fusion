@@ -37,7 +37,7 @@ def signUp(request):
 def handle_login(request):
     if request.method == "POST":
         email = request.POST.get("email")
-        password = request.POST.get("password")
+        password = request.POST.get("pass1")
 
         user = authenticate(username=email, password=password)
         if user is not None:
@@ -51,4 +51,6 @@ def handle_login(request):
 
 
 def handle_logout(request):
-    return render(request, "authentication/logout.html")
+    logout(request)
+    messages.info(request,"Logout Success")
+    return redirect('/authCart/login')

@@ -45,7 +45,6 @@
   <header id="header" class="fixed-top ">
     <div class="container d-flex align-items-center justify-content-between">
       <h1 class="logo"><a href="index.html">ShopFusion</a></h1>
-main
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo"><img src="{% static 'assets/img/logo.png' %}" alt="" class="img-fluid"></a>-->
 
@@ -57,7 +56,12 @@ main
           <li><a class="nav-link scrollto " href="#portfolio">Portfolio</a></li>
           <li><a class="nav-link scrollto" href="#team">Team</a></li>
           <li class="dropdown"><a href="#"><span>Cart</span> <i class="bi bi-chevron-down"></i></a>
-Rashmi_Auth
+
+            {% if request.user.is_authenticated %}
+
+            <li><a class="nav-link scrollto" href="/authCart/logout">Logout</a></li>
+
+            {% else %}
 
           <li class="dropdown"><a href="#"><span>SIGN UP</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
@@ -66,8 +70,8 @@ Rashmi_Auth
               <li><a href="/authCart/login">Login</a></li>
             </ul>
 
-main
           </li>
+          {% endif %}
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
