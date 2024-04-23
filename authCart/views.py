@@ -16,12 +16,10 @@ def signUp(request):
         email = request.POST.get("email")
         password = request.POST.get("pass1")
         confirm_password = request.POST.get("pass2")
-        
-       
-        
+
         if password != confirm_password:
             messages.error(request, "Passwords do not match")
-            return redirect("/authCart/signUp")
+            return render(request, "authentication/signup.html")
         
          # Check if a user with this email already exists
         if User.objects.filter(username=email).exists():
@@ -31,9 +29,7 @@ def signUp(request):
         user = User.objects.create_user(email, email, password)
         messages.success(request, "Account created successfully")
         user.is_active = True
-        user.save()
-        
-        
+        user.save()       
 
     return render(request, "authentication/signup.html")
 
