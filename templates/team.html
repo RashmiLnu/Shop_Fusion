@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% load static %}
+{% block body %}
+<style>
+    .member-img img {
+        object-fit: cover; /* This will make the image cover the entire space of the div, cropping it if necessary */
+        height: 200px; /* Adjust as needed */
+        width: 100%; /* Changed from 3000% to 100% to fit the container */
+    }
+    
+</style>
+
+
+    <section id="team" class="team card bg-dark p-5">
+        <div class="container card bg-light ">
+
+            <div class="section-title">
+            <div class="text-center">
+                <h2><strong style="color: black;">Team</strong></h2>
+                <h3><strong style="color: black;">Meet Our <span>Team</span></strong></h3>
+                <p><strong style="color: black;">Get to know the hardworking individuals behind ShopFusion.</strong></p>
+            </div>
+            </div>
+
+            <div class="row justify-content-center">
+                
+                <div class="col-lg-3 col-md-6 d-flex align-items-stretch offset-lg-1">
+                    <div class="member">
+                        <div class="member-img">
+                            <img src="{% static 'assets/img/team/Sindhu.jpg' %}" class="img-fluid" alt="">
+                            <div class="social">
+                                <a href="https://github.com/SindhuraMallepoola"><i class="bi bi-github"></i></a>
+                                <a href="https://www.linkedin.com/in/sindhura-mallepoola-5804ba1b2/"><i class="bi bi-linkedin"></i></a>
+                            </div>
+                        </div>
+                        <div class="member-info">
+                            <h4>Sindhura Mallepoola</h4>
+                            <span>TEAM MEMBER 1</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+                    <div class="member">
+                        <div class="member-img">
+                            <img src="{% static 'assets/img/team/Rashmi.jpg' %}" class="img-fluid" alt="">
+                            <div class="social">
+                                <a href="https://github.com/RashmiLnu"><i class="bi bi-github"></i></a>
+                                <a href="https://www.linkedin.com/in/rashmi-315703219/"><i class="bi bi-linkedin"></i></a>
+                            </div>
+                        </div>
+                        <div class="member-info">
+                            <h4>RASHMI</h4>
+                            <span>TEAM MEMBER 2</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+                    <div class="member">
+                        <div class="member-img">
+                            <img src="{% static 'assets/img/team/Vicky.jpg' %}" class="img-fluid" alt="">
+                            <div class="social">
+                                <a href="https://github.com/sg1605"><i class="bi bi-github"></i></a>
+                                <a href="https://www.linkedin.com/in/sai-chandra-1399a8229/"><i class="bi bi-linkedin"></i></a>
+                            </div>
+                        </div>
+                        <div class="member-info">
+                            <h4>SAI CHANDRA GUNTUKULA</h4>
+                            <span>TEAM MEMBER 3</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+{% endblock body %}
