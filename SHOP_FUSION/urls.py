@@ -26,4 +26,5 @@ urlpatterns = [
     path("about/", views.about, name="about"),
     path("authCart/", include("authCart.urls")),
     path("team/", views.team, name="team"),
+    path("product_api/", views.product_api, name="product_api"),
 ]

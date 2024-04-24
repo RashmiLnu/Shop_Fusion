@@ -1,0 +1,61 @@
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+    th {
+        background-color: #4CAF50;
+        color: white;
+    }
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+    .back-button {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+    }
+    .back-button a {
+        font-size: 20px; /* Increase font size */
+        padding: 10px 20px; /* Increase padding */
+        text-decoration: none; /* Remove underline */
+        color: white; /* Text color */
+        background-color: #007bff; /* Background color */
+        border-radius: 5px; /* Rounded corners */
+    }
+</style>
+
+<table>
+    <thead>
+        <tr>
+            <th>Product ID</th>
+            <th>Product Name</th>
+            <th>Product Price</th>
+            <th>Product description</th>
+            <th>Product category</th>
+            <th>Product image</th>
+            <!-- Add more headers as needed -->
+        </tr>
+    </thead>
+    <tbody>
+        {% for product in products %}
+            <tr>
+                <td>{{ product.id }}</td>
+                <td>{{ product.title }}</td>
+                <td>{{ product.price }}</td>
+                <td>{{ product.description }}</td>
+                <td>{{ product.category }}</td>
+                <td><img src="{{ product.image }}" alt="Product Image" style="width: 100px; height: auto;"></td>
+                <!-- Add more data cells as needed -->
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<div class="back-button">
+    <a href="/authCart/login">Go Back</a>
+</div>
