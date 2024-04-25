@@ -12,24 +12,28 @@ from django.conf import settings
 
 # Create your views here.
 def signUp(request):
-    if request.method == "POST" :
+    if request.method == "POST":
         email = request.POST.get("email")
         password = request.POST.get("pass1")
         confirm_password = request.POST.get("pass2")
 
+        # Check if passwords match
         if password != confirm_password:
             messages.error(request, "Passwords do not match")
-            return render(request, "authentication/signup.html")
+            return redirect("signup")  # Redirect back to signup page
         
-         # Check if a user with this email already exists
+        # Check if a user with this email already exists
         if User.objects.filter(username=email).exists():
             messages.error(request, "A user with this email already exists.")
-            return redirect('/authCart/login')
+            return redirect("login")  # Redirect to login page
         
+        # Create the user
         user = User.objects.create_user(email, email, password)
-        messages.success(request, "Account created successfully")
         user.is_active = True
-        user.save()       
+        user.save()
+        
+        messages.success(request, "Account created successfully")
+        return redirect(reverse("login"))  # Redirect to login page after successful signup
 
     return render(request, "authentication/signup.html")
 
@@ -53,4 +57,9 @@ def handle_login(request):
 def handle_logout(request):
     logout(request)
     messages.info(request,"Logout Success")
-    return redirect('/authCart/login')
+    return render(request, "home.html")
+
+
+
+
+
