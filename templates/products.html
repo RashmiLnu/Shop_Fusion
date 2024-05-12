@@ -1,117 +1,195 @@
 {% load static %}
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><span class="title">Products</span></title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <style>
+    /* Custom styles here */
+    body {
+      font-family: Arial, sans-serif;
+      background: url("../static/assets/img/hero-bg.jpg") top center;
+      background-size: cover;
+      background-color: #f8f9fa;
+    }
+    
+    .section-title {
+      margin-bottom: 30px;
+      text-align: center;
+    }
+    .section-title h2 {
+      color: #343a40;
+    }
+    .section-title h3 {
+      color: #6c757d;
+    }
+
+    .title {
+      color: #ff69b4; /* Pink color */
+      font-weight: bold; /* Bold */
+    }
+
+
+    .portfolio-item {
+      margin-bottom: 30px;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+    .portfolio-item img {
+      width: 100%;
+      height: auto;
+      transition: transform 0.3s ease;
+    }
+    .portfolio-item:hover img {
+      transform: scale(1.05);
+    }
+
+    .portfolio-info h4 {
+      color: #343a40;
+      font-size: 18px;
+      margin-bottom: 10px;
+      font-weight: bold; /* Bold */
+
+    }
+    .portfolio-info p {
+      color: #6c757d;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+    .portfolio-info .price {
+      color: #28a745;
+      font-weight: bold;
+    }
+    .portfolio-info a {
+      color: #007bff;
+      text-decoration: none;
+      margin-right: 10px;
+    }
+    .portfolio-info a:hover {
+      color: #0056b3;
+    }
+    .add-to-cart-btn {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .add-to-cart-btn:hover {
+      background-color: #0056b3;
+    }
+    .go-to-cart-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: #28a745;
+      color: #fff;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .go-to-cart-btn:hover {
+      background-color: #218838;
+    }
+  </style>
+</head>
+<body>
+
 <section id="portfolio" class="portfolio">
   <div class="container">
 
     <div class="section-title">
-      <h2>Portfolio</h2>
-      <h3>Check our <span>Portfolio</span></h3>
-      <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque vitae autem.</p>
-    </div>
-
-    <div class="row">
-      <div class="col-lg-12 d-flex justify-content-center">
-        <ul id="portfolio-flters">
-          <li data-filter="*" class="filter-active">All</li>
-          <li data-filter=".filter-app">App</li>
-          <li data-filter=".filter-card">Card</li>
-          <li data-filter=".filter-web">Web</li>
-        </ul>
-      </div>
+      <h2><strong style="color: #e43c5c;">Products</strong></h2>
+      <h3>Check our <span>Products</span></h3>
     </div>
 
     <div class="row portfolio-container">
 
       <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-        <img src="{% static 'assets/img/portfolio/portfolio-1.jpg' %}" class="img-fluid" alt="">
+        <img src="https://th.bing.com/th/id/OIP.j5m35omKPx0jk4zW90YUTgHaJ4?rs=1&pid=ImgDetMain" class="img-fluid" alt="">
         <div class="portfolio-info">
-          <h4>App 1</h4>
-          <p>App</p>
-          <a href="{% static 'assets/img/portfolio/portfolio-1.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 1"><i class="bx bx-plus"></i></a>
-          <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-        </div>
-      </div>
-
-      <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-        <img src="{% static 'assets/img/portfolio/portfolio-2.jpg' %}" class="img-fluid" alt="">
-        <div class="portfolio-info">
-          <h4>Web 3</h4>
-          <p>Web</p>
-          <a href="{% static 'assets/img/portfolio/portfolio-2.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Web 3"><i class="bx bx-plus"></i></a>
-          <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+          <h4>Women's T-shirt</h4>
+          <p>Cotton T-shirt for Women</p>
+          <p class="price">$19.99</p>
+          <button class="add-to-cart-btn">Add to Cart</button>
         </div>
       </div>
 
       <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-        <img src="{% static 'assets/img/portfolio/portfolio-3.jpg' %}" class="img-fluid" alt="">
+        <img src="https://th.bing.com/th/id/R.cba79338b25f43de9729d44a0eabb6c6?rik=DyvrXL4NRabRsQ&riu=http%3a%2f%2fcdn.shopify.com%2fs%2ffiles%2f1%2f0870%2f3920%2fproducts%2fblackveenew1_1080x_6370d63c-7b30-44ce-8c3b-8e6bd20e1674.jpg%3fv%3d1568791113&ehk=kUvR9b2LK7eU7kUQfpEm4RkXQrQRHuBngyaiUg3wuKo%3d&risl=&pid=ImgRaw&r=0" class="img-fluid" alt="">
         <div class="portfolio-info">
-          <h4>App 2</h4>
-          <p>App</p>
-          <a href="{% static 'assets/img/portfolio/portfolio-3.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 2"><i class="bx bx-plus"></i></a>
-          <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-        </div>
-      </div>
-
-      <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-        <img src="{% static 'assets/img/portfolio/portfolio-4.jpg' %}" class="img-fluid" alt="">
-        <div class="portfolio-info">
-          <h4>Card 2</h4>
-          <p>Card</p>
-          <a href="{% static 'assets/img/portfolio/portfolio-4.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 2"><i class="bx bx-plus"></i></a>
-          <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-        </div>
-      </div>
-
-      <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-        <img src="{% static 'assets/img/portfolio/portfolio-5.jpg' %}" class="img-fluid" alt="">
-        <div class="portfolio-info">
-          <h4>Web 2</h4>
-          <p>Web</p>
-          <a href="{% static 'assets/img/portfolio/portfolio-5.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Web 2"><i class="bx bx-plus"></i></a>
-          <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+          <h4>Men's T-shirt</h4>
+          <p>Cotton T-shirt for Men</p>
+          <p class="price">$20.99</p>
+          <button class="add-to-cart-btn">Add to Cart</button>
         </div>
       </div>
 
       <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-        <img src="{% static 'assets/img/portfolio/portfolio-6.jpg' %}" class="img-fluid" alt="">
+        <img src="https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/a447e0eb-b47c-464b-91df-5387f958582d/dunk-low-womens-shoes-ppQwKZ.png" class="img-fluid" alt="">
         <div class="portfolio-info">
-          <h4>App 3</h4>
-          <p>App</p>
-          <a href="{% static 'assets/img/portfolio/portfolio-6.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 3"><i class="bx bx-plus"></i></a>
-          <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+          <h4>Women's Shoes</h4>
+          <p>Nike shoes for Women</p>
+          <p class="price">$130.99</p>
+          <button class="add-to-cart-btn">Add to Cart</button>
         </div>
       </div>
 
-      <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-        <img src="{% static 'assets/img/portfolio/portfolio-7.jpg' %}" class="img-fluid" alt="">
+      <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+        <img src="https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/8f2b32ed-34f4-4065-ab8f-f3a9d0aa47a8/dunk-low-retro-se-mens-shoes-qTZ3Jk.png" class="img-fluid" alt="">
         <div class="portfolio-info">
-          <h4>Card 1</h4>
-          <p>Card</p>
-          <a href="{% static 'assets/img/portfolio/portfolio-7.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 1"><i class="bx bx-plus"></i></a>
-          <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+          <h4>Men's Shoes</h4>
+          <p>Nike shoes for Men</p>
+          <p class="price">$150.99</p>
+          <button class="add-to-cart-btn">Add to Cart</button>
         </div>
       </div>
 
-      <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-        <img src="{% static 'assets/img/portfolio/portfolio-8.jpg' %}" class="img-fluid" alt="">
+      <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+        <img src="https://www.thingsremembered.com/cat_image/2000/47185-125011-240110085959.jpg" class="img-fluid" alt="">
         <div class="portfolio-info">
-          <h4>Card 3</h4>
-          <p>Card</p>
-          <a href="{% static 'assets/img/portfolio/portfolio-8.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 3"><i class="bx bx-plus"></i></a>
-          <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+          <h4>Women's Watch</h4>
+          <p>Fossil Watch for Women</p>
+          <p class="price">$25.99</p>
+          <button class="add-to-cart-btn">Add to Cart</button>
         </div>
       </div>
 
-      <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-        <img src="{% static 'assets/img/portfolio/portfolio-9.jpg' %}" class="img-fluid" alt="">
+      <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+        <img src="https://fossil.scene7.com/is/image/FossilPartners/FS4656_main?$sfcc_fos_large$" class="img-fluid" alt="">
         <div class="portfolio-info">
-          <h4>Web 3</h4>
-          <p>Web</p>
-          <a href="{% static 'assets/img/portfolio/portfolio-9.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Web 3"><i class="bx bx-plus"></i></a>
-          <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+          <h4>Men's Watch</h4>
+          <p>Fossil Watch for Men</p>
+          <p class="price">$30.99</p>
+          <button class="add-to-cart-btn">Add to Cart</button>
         </div>
       </div>
+
+      <!-- Add more portfolio items here -->
 
     </div>
 
   </div>
 </section>
+
+<button class="go-to-cart-btn">Go to Cart</button>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+{% endblock body %}
