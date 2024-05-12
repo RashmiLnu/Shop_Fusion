@@ -51,10 +51,10 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+          <li><a class="nav-link scrollto active" href="/">Home</a></li>
           <li><a class="nav-link scrollto" href="#about">About</a></li>
           <li><a class="nav-link scrollto" href="#services">Services</a></li>
-          <li><a class="nav-link scrollto " href="#portfolio">Portfolio</a></li>
+          <li><a class="nav-link scrollto " href="/checkout">Checkout</a></li>
           <li><a class="nav-link scrollto " href="/product_api">Product_API</a></li>
           <li><a class="nav-link scrollto" href="/team">Team</a></li>
           <button type="button" class="nav-link scrollto bg-danger p-3 m-2 text-white" 
@@ -105,7 +105,7 @@
     <section id="about" class="about">
       <div class="container">
 
-        <div class="section-title">
+        {% comment %} <div class="section-title">
           <h2>About</h2>
           <h3>Learn More <span>About Us</span></h3>
           <p>Welcome to ShopFusion, your premier destination for online shopping! Our mission is to provide you with an exceptional shopping experience, offering a wide range of products across various categories.</p>
@@ -128,7 +128,12 @@
             </p>
             <a href="#" class="btn-learn-more">Learn More</a>
           </div>
-        </div>
+        </div> {% endcomment %}
+        {% block about %}
+        
+        {% endblock about %}
+
+        
 
       </div>
     </section><!-- End About Section -->
