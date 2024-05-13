@@ -1,4 +1,5 @@
 from django.http import HttpResponse
+from django.shortcuts import render
 
 
 class CustomHeaderMiddleware:
@@ -19,5 +20,5 @@ class MaintenanceModeMiddleware:
 
     def __call__(self, request):
         if self.maintenance_mode:
-            return HttpResponse('Sorry, our website is under maintenance.')
+            return render(request, 'maintenance.html')
         return self.get_response(request)
