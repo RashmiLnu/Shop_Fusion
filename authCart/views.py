@@ -29,6 +29,7 @@ def signUp(request):
         messages.success(request, "Account created successfully")
         user.is_active = True
         user.save()
+        return render(request, "authentication/login.html")
 
     return render(request, "authentication/signup.html")
 
