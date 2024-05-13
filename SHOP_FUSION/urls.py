@@ -23,11 +23,11 @@ from SHOP_FUSION import views
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include("index_app.urls")),
-    path("about/", views.about, name="about"),
+    # path("about/", views.about, name="about"),
     path("authCart/", include("authCart.urls")),
     path("team/", views.team, name="team"),
     path("product_api/", views.product_api, name="product_api"),
     path("products/", views.products, name="products"),
-    path("about/", views.about, name="about"),
+    # path("about/", views.about, name="about"),
 
 ]
