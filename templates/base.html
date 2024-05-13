@@ -328,6 +328,31 @@
           </div>
         </div>
         {% endfor %}
+ 
+        <br>
+        <button class="btn btn-dark btn-sm cart" id="load-products">Load All Products</button>
+
+        <div id="products"></div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+  $(document).ready(function() {
+    $("#load-products").click(function() {
+        $.ajax({
+            url: "{% url 'api_products' %}",
+            type: 'GET',
+            success: function(response) {
+                var products = JSON.parse(response);
+                var html = '';
+                for (var i = 0; i < products.length; i++) {
+                  html += '<p>' + products[i].fields.product_name + '</p>';
+                }
+                $("#products").html(html);
+            }
+        });
+    });
+});
+</script>
       </div>
     </section>
     <!-- End Portfolio Section -->
