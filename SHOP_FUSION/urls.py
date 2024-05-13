@@ -29,5 +29,6 @@ urlpatterns = [
     path("about/", views.about, name="about"),
     path("authCart/", include("authCart.urls")),
     path("team/", views.team, name="team"),
+    path("profile/", views.profile, name = "profile"),
     path("product_api/", views.product_api, name="product_api")
 ]+ static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
