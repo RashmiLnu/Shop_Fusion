@@ -3,7 +3,8 @@ from django.contrib import messages
 from django.shortcuts import redirect, render
 from index_app.models import OrderUpdate, Orders, Product
 from index_app.models import Orders
-
+from django.http import JsonResponse
+from django.core import serializers
 
 def home(request):
     allProds = []
@@ -105,3 +106,12 @@ def handlerequest(request,param_dict):
 
         
     return render(request, 'paymentstatus.html', {'response': response_dict})
+
+
+
+def api_products(request):
+    products = Product.objects.all()
+    print(products)
+    products_json = serializers.serialize('json', products)
+    print(products_json)
+    return JsonResponse(products_json, safe=False)
