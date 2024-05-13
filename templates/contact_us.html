@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% block body %}
+
+<div class="card bg-light p-5">
+
+    {% if messages %}
+    <script>
+        {% for message in messages %}
+            alert("{{ message }}");
+        {% endfor %}
+    </script>
+    {% endif %}
+
+
+    <h1 class="text-dark">Contact Us</h1>
+    
+    <form action="/submit_contact" method="post">
+      {% csrf_token %}
+      <br />
+  
+      <label for="name">Name</label>
+      <div class="form-group">
+        <input
+          type="text"
+          class="form-control p-2"
+          id="name"
+          name="name"
+          required
+        />
+      </div>
+      <label for="email">Email</label>
+      <div class="form-group">
+        <input
+          type="email"
+          class="form-control p-2"
+          id="email"
+          name="email"
+          required
+        />
+      </div>
+      <label for="message_type">Message/Issue</label>
+      <div class="form-group">
+        <select id="message_type" name="message_type" class="form-control p-2" onchange="showOtherMessageField()" required>
+          <option value="" disabled selected>Select a reason</option>
+          <option value="product_not_delivered">Product not delivered</option>
+          <option value="wrong_damaged_product">Received wrong/damaged product</option>
+          <option value="others">Others</option>
+        </select>
+      </div>
+      <div class="form-group" id="other_message_div" style="display: none;">
+        <label for="other_message">Other Message</label>
+        <textarea
+          class="form-control p-2"
+          id="other_message"
+          name="other_message"
+        ></textarea>
+      </div>
+      <br />
+      <button type="submit" class="btn btn-dark">Submit</button>
+  
+      <br />
+    </form>
+  </div>
+  <script>
+    function showOtherMessageField() {
+      var message_type = document.getElementById('message_type').value;
+      if (message_type == 'others') {
+        document.getElementById('other_message_div').style.display = 'block';
+      } else {
+        document.getElementById('other_message_div').style.display = 'none';
+      }
+    }
+  </script>
+{% endblock body %}
