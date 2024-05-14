@@ -42,3 +42,12 @@ class OrderUpdate(models.Model):
 
     def __str__(self):
         return str(self.update_desc)[:7] + "..."
+    
+class ContactUs(models.Model):
+    name = models.CharField(max_length=255)
+    email = models.EmailField()
+    message_type = models.CharField(max_length=255)
+    other_message = models.TextField()
+
+    def __str__(self):
+        return str(self.name)

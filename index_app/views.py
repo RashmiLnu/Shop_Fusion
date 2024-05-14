@@ -1,8 +1,7 @@
 from math import ceil
 from django.contrib import messages
 from django.shortcuts import redirect, render
-from index_app.models import OrderUpdate, Orders, Product
-from index_app.models import Orders
+from index_app.models import OrderUpdate, Orders, Product, ContactUs
 from django.http import JsonResponse
 from django.core import serializers
 
@@ -115,3 +114,15 @@ def api_products(request):
     products_json = serializers.serialize('json', products)
     print(products_json)
     return JsonResponse(products_json, safe=False)
+
+def contact_us(request):
+    if request.method == "POST":
+        name = request.POST.get("name")
+        email = request.POST.get("email")
+        message_type = request.POST.get("message_type")
+        other_message = request.POST.get("other_message")
+        contact_us = ContactUs(name=name, email=email, message_type=message_type, other_message=other_message)
+        contact_us.save()
+        messages.info(request, "Your message has been sent successfully")
+        return render(request, "contact_us.html")
+    return render(request, "contact_us.html")
