@@ -57,7 +57,7 @@
           <!-- <li><a class="nav-link scrollto " href="/products">Products</a></li> -->
           <!-- <li><a class="nav-link scrollto" href="#portfolio">Products</a></li> -->
           <li><a class="nav-link scrollto" href="/profile">My Profile</a></li>
-          <li><a class="nav-link scrollto " href="/checkout">Checkout</a></li>
+          {% comment %} <li><a class="nav-link scrollto " href="/checkout">Checkout</a></li> {% endcomment %}
           <li><a class="nav-link scrollto " href="/product_api">Product_API</a></li>
           <li><a class="nav-link scrollto" href="/team">Team</a></li>
           <button type="button" class="nav-link scrollto bg-danger p-3 m-2 text-white" 
@@ -125,129 +125,7 @@
       <div class="container">
         {% block services%}
         {% endblock services%}
-        <!-- <div class="section-title">
-          <h2>Services</h2>
-          <h3>We offer <span>Awesome Services</span></h3>
-          <p>Welcome to ShopFusion, where we provide a range of services to enhance your online shopping experience!</p>
-        </div>
-    
-        <div class="row">
-          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
-            <div class="icon-box">
-              <div class="icon"><i class="bx bxl-dribbble"></i></div>
-              <h4 class="title"><a href="">Fast Delivery</a></h4>
-              <p class="description">Enjoy swift and reliable delivery straight to your doorstep, so you can start enjoying your purchases sooner.</p>
-            </div>
-          </div>
-    
-          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
-            <div class="icon-box">
-              <div class="icon"><i class="bx bx-file"></i></div>
-              <h4 class="title"><a href="">Secure Payments</a></h4>
-              <p class="description">Shop with confidence using our secure payment options, ensuring your transactions are safe and protected.</p>
-            </div>
-          </div>
-    
-          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
-            <div class="icon-box">
-              <div class="icon"><i class="bx bx-tachometer"></i></div>
-              <h4 class="title"><a href="">Customer Support</a></h4>
-              <p class="description">Our dedicated customer support team is here to assist you every step of the way, providing prompt and friendly assistance for all your inquiries.</p>
-            </div>
-          </div>
-    
-          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
-            <div class="icon-box">
-              <div class="icon"><i class="bx bx-world"></i></div>
-              <h4 class="title"><a href="">Product Variety</a></h4>
-              <p class="description">Discover a diverse range of products across various categories, ensuring there's something for everyone at ShopFusion.</p>
-            </div> -->
-          <!-- </div>
-    
-        </div> -->
-    
-
-      </div>
-    </section><!-- End Services Section -->
-
-    <!-- ======= Features Section ======= -->
-    <section id="features" class="features">
-      <div class="container">
-      
-        <!-- <div class="row">
-          <div class="col-lg-3 col-md-4 col-6 col-6">
-            <div class="icon-box">
-              <i class="ri-store-line" style="color: #ffbb2c;"></i>
-              <h3><a href="">Wide Range of Products</a></h3>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-4 col-6">
-            <div class="icon-box">
-              <i class="ri-bar-chart-box-line" style="color: #5578ff;"></i>
-              <h3><a href="">User-friendly Interface</a></h3>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-4 col-6 mt-4 mt-md-0">
-            <div class="icon-box">
-              <i class="ri-calendar-todo-line" style="color: #e80368;"></i>
-              <h3><a href="">Secure Transactions</a></h3>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-4 col-6 mt-4 mt-lg-0">
-            <div class="icon-box">
-              <i class="ri-paint-brush-line" style="color: #e361ff;"></i>
-              <h3><a href="">Fast Delivery</a></h3>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-4 col-6 mt-4">
-            <div class="icon-box">
-              <i class="ri-database-2-line" style="color: #47aeff;"></i>
-              <h3><a href="">Responsive Customer Support</a></h3>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-4 col-6 mt-4">
-            <div class="icon-box">
-              <i class="ri-gradienter-line" style="color: #ffa76e;"></i>
-              <h3><a href="">Convenient Shopping Experience</a></h3>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-4 col-6 mt-4">
-            <div class="icon-box">
-              <i class="ri-file-list-3-line" style="color: #11dbcf;"></i>
-              <h3><a href="">Flexible Payment Options</a></h3>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-4 col-6 mt-4">
-            <div class="icon-box">
-              <i class="ri-price-tag-2-line" style="color: #4233ff;"></i>
-              <h3><a href="">Exclusive Deals and Discounts</a></h3>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-4 col-6 mt-4">
-            <div class="icon-box">
-              <i class="ri-anchor-line" style="color: #b2904f;"></i>
-              <h3><a href="">Quality Assurance</a></h3>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-4 col-6 mt-4">
-            <div class="icon-box">
-              <i class="ri-disc-line" style="color: #b20969;"></i>
-              <h3><a href="">Easy Returns and Refunds</a></h3>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-4 col-6 mt-4">
-            <div class="icon-box">
-              <i class="ri-base-station-line" style="color: #ff5828;"></i>
-              <h3><a href="">Efficient Order Tracking</a></h3>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-4 col-6 mt-4">
-            <div class="icon-box">
-              <i class="ri-fingerprint-line" style="color: #29cc61;"></i>
-              <h3><a href="">Satisfaction Guaranteed</a></h3>
-            </div>
-          </div>
-        </div> -->
+       
     
       </div>
     </section><!-- End Features Section -->
@@ -401,7 +279,9 @@
             console.error('Element with id "name' + item + '" not found');
         }
     }
-    popStr = popStr + "</div> <a href='/checkout'><button class='btn btn-success' id='clearCart'>Checkout</button></a>  <button class='btn btn-dark' onclick='clearCart()' id='clearCart'>ClearCart</button>"
+    popStr = popStr + "</div> <a href='/checkout'>
+    <button class='btn btn-success' id='clearCart'>Checkout</button></a>  
+    <button class='btn btn-dark'  onclick='clearCart()' id='clearCart'>ClearCart</button>"
     document.getElementById('popcart').setAttribute('data-content', popStr);
     $('#popcart').popover('show');
     document.getElementById("popcart").click();
@@ -466,7 +346,7 @@
     <section id="faq" class="faq">
       <div class="container">
     
-        <div class="section-title">
+        {% comment %} <div class="section-title">
           <h2>F.A.Q</h2>
           <h3>Frequently Asked <span>Questions</span></h3>
         </div>
@@ -527,7 +407,7 @@
             </div>
           </li>
     
-        </ul>
+        </ul> {% endcomment %}
     
       </div>
     </section><!-- End F.A.Q Section -->
