@@ -1,429 +1,546 @@
-
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>{% block title %} {% endblock title %}</title>
+    <meta content="" name="description" />
+    <meta content="" name="keywords" />
 
-  <title>
-    {% block title %} {% endblock title %}  
-</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+    <!-- Favicons -->
+    <link href="{% static 'assets/img/favicon.png' %}" rel="icon" />
+    <link
+      href="{% static 'assets/img/apple-touch-icon.png' %}"
+      rel="apple-touch-icon"
+    />
 
-  <!-- Favicons -->
-  <link href="{% static 'assets/img/favicon.png' %}" rel="icon">
-  <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+      rel="stylesheet"
+    />
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link
+      href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}"
+      rel="stylesheet"
+    />
+    <link
+      href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}"
+      rel="stylesheet"
+    />
+    <link
+      href="{% static 'assets/vendor/boxicons/css/boxicons.min.css' %}"
+      rel="stylesheet"
+    />
+    <link
+      href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}"
+      rel="stylesheet"
+    />
+    <link
+      href="{% static 'assets/vendor/remixicon/remixicon.css' %}"
+      rel="stylesheet"
+    />
+    <link
+      href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}"
+      rel="stylesheet"
+    />
 
-  <!-- Vendor CSS Files -->
-  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
-  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
-  <link href="{% static 'assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
-  <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
-  <link href="{% static 'assets/vendor/remixicon/remixicon.css' %}" rel="stylesheet">
-  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="{% static 'assets/css/style.css' %}" rel="stylesheet" />
 
-  <!-- Template Main CSS File -->
-  <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
-
-  <!-- =======================================================
+    <!-- =======================================================
   * Template Name: Tempo
   * Template URL: https://bootstrapmade.com/tempo-free-onepage-bootstrap-theme/
   * Updated: Mar 17 2024 with Bootstrap v5.3.3
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
-</head>
+  </head>
 
-<body>
+  <body>
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top">
+      <div class="container d-flex align-items-center justify-content-between">
+        <h1 class="logo"><a href="/">ShopFusion</a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="index.html" class="logo"><img src="{% static 'assets/img/logo.png' %}" alt="" class="img-fluid"></a>-->
 
-  <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top ">
-    <div class="container d-flex align-items-center justify-content-between">
-      <h1 class="logo"><a href="/">ShopFusion</a></h1>
-      <!-- Uncomment below if you prefer to use an image logo -->
-      <!-- <a href="index.html" class="logo"><img src="{% static 'assets/img/logo.png' %}" alt="" class="img-fluid"></a>-->
-
-      <nav id="navbar" class="navbar">
-        <ul>
-          <!-- <li><a class="nav-link scrollto active" href="/home">Home</a></li> -->
-          <li><a class="nav-link scrollto" href="/about">About</a></li>
-          <li><a class="nav-link scrollto" href="/checkout#services">Checkout</a></li>
-          <!-- <li><a class="nav-link scrollto " href="/products">Products</a></li> -->
-          <!-- <li><a class="nav-link scrollto" href="#portfolio">Products</a></li> -->
-          <li><a class="nav-link scrollto" href="/profile">My Profile</a></li>
-          {% comment %} <li><a class="nav-link scrollto " href="/checkout">Checkout</a></li> {% endcomment %}
-          <li><a class="nav-link scrollto " href="/product_api">Product_API</a></li>
-          <li><a class="nav-link scrollto" href="/team">Team</a></li>
-          <button type="button" class="nav-link scrollto bg-danger p-3 m-2 text-white" 
-          id="popcart" data-container="body" 
-          data-toggle="popover" data-placement="bottom" data-html="true" >
-          <i class="fa-solid fa-cart-shopping"></i>  Cart (<span id="cart">0</span>)
-          </button>
+        <nav id="navbar" class="navbar">
+          <ul>
+            <!-- <li><a class="nav-link scrollto active" href="/home">Home</a></li> -->
+            <li><a class="nav-link scrollto" href="/about">About</a></li>
+            <li>
+              <a class="nav-link scrollto" href="/checkout#services"
+                >Checkout</a
+              >
+            </li>
+            <!-- <li><a class="nav-link scrollto " href="/products">Products</a></li> -->
+            <!-- <li><a class="nav-link scrollto" href="#portfolio">Products</a></li> -->
+            <li><a class="nav-link scrollto" href="/profile">My Profile</a></li>
+            {% comment %}
+            <li><a class="nav-link scrollto" href="/checkout">Checkout</a></li>
+            {% endcomment %}
+            <li>
+              <a class="nav-link scrollto" href="/product_api">Product_API</a>
+            </li>
+            <li><a class="nav-link scrollto" href="/team">Team</a></li>
+            <button
+              type="button"
+              class="nav-link scrollto bg-danger p-3 m-2 text-white"
+              id="popcart"
+              data-container="body"
+              data-toggle="popover"
+              data-placement="bottom"
+              data-html="true"
+            >
+              <i class="fa-solid fa-cart-shopping"></i> Cart (<span id="cart"
+                >0</span
+              >)
+            </button>
 
             {% if request.user.is_authenticated %}
 
-            <li><a class="nav-link scrollto" href="/authCart/logout">Logout</a></li>
+            <li>
+              <a class="nav-link scrollto" href="/authCart/logout">Logout</a>
+            </li>
 
             {% else %}
 
-          <li class="dropdown"><a href="#"><span>SIGN UP</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <li><a href="/authCart/signup">SIGN UP</a></li>
-              <!-- <li><a href="#">Logout</a></li> -->
-              <li><a href="/authCart/login">Login</a></li>
-            </ul>
-
-          </li>
-          {% endif %}
-          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-        </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav><!-- .navbar -->
-
-    </div>
-    {% if messages %}
-    {% for message in messages %}
-        <div class="alert alert-{{ message.tags }}" role="alert">
-            {{ message }}
-            <script>
-                setTimeout(function() {
-                    document.querySelector('.alert').remove();
-                }, 5000); 
-            </script>
-        </div>
-    {% endfor %}
-{% endif %}
-
-  </header><!-- End Header -->
-
-  <!-- ======= Hero Section ======= -->
-  <section id="hero">
-    <div class="hero-container">
-      {% block body %}
-      
-      {% endblock body %}
-      {% comment %} <h3>Welcome to <strong>ShopFusion</strong></h3>
-      <h1>Where Convenience Meets Style!</h1>
-      <h2>Shop Smarter, Shop Faster, ShopFusion!</h2>
-      <a href="#about" class="btn-get-started scrollto">Get Started</a> {% endcomment %}
-    </div>
-  </section><!-- End Hero -->
-
-  <main id="main">
-
-    <!-- ======= About Section ======= -->
-    <!-- End About Section -->
-
-    <!-- ======= Services Section ======= -->
-    <section id="services" class="services">
-      <div class="container">
-        {% block services%}
-        {% endblock services%}
-       
-    
+            <li class="dropdown">
+              <a href="#"
+                ><span>SIGN UP</span> <i class="bi bi-chevron-down"></i
+              ></a>
+              <ul>
+                <li><a href="/authCart/signup">SIGN UP</a></li>
+                <!-- <li><a href="#">Logout</a></li> -->
+                <li><a href="/authCart/login">Login</a></li>
+              </ul>
+            </li>
+            {% endif %}
+            <li><a class="nav-link scrollto" href="/checkout">Contact</a></li>
+          </ul>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav>
+        <!-- .navbar -->
       </div>
-    </section><!-- End Features Section -->
-    
+      {% if messages %} {% for message in messages %}
+      <div class="alert alert-{{ message.tags }}" role="alert">
+        {{ message }}
+        <script>
+          setTimeout(function () {
+            document.querySelector(".alert").remove();
+          }, 5000);
+        </script>
+      </div>
+      {% endfor %} {% endif %}
+    </header>
+    <!-- End Header -->
 
-    <!-- ======= Portfolio Section ======= -->
-    <section id="portfolio" class="portfolio">
-      <div class="container">
-        {% for message in messages %}
-    
-        <div
-          class="alert alert-{{message.tags}} alert-dismissible fade show"
-          role="alert"
-        >
-          <strong>{{message}}</strong>
-          <button
-            type="button"
-            class="btn-close"
-            data-bs-dismiss="alert"
-            aria-label="Close"
-          ></button>
-        </div>
-        {% endfor %}
-    
-        <div class="section-title">
-          <h2>Welcome to Shop</h2>
-          <h3>Check our <span>Products</span></h3>
-        </div>
-    
-        {% for product, range, nSlides in allProds %}
-    
-        <h3 class="my-3 text-center text-success bg-light">
-          {{product.0.product_category}} Flashsale
-        </h3>
-    
-        <div class="container">
-          <div class="row">
-    
-            {% for i in product %}
-            <div class="col-md-3 mt-3">
-              <img src="{{i.product_image.url}}" class="card-img-top" alt="Product Image" style="object-fit: cover; height: 200px; width: 150px;" />
-              <div class="card-body">
-                <h5 class="card-title mt-2" id="namepr{{i.id}}">{{i.product_name}}</h5>
-                <p class="card-text">{{i.product_description|slice:"0:53"}}...</p>
-                <h6 class="card-title mb-3">
-                  Price:<span id="pricepr{{i.id}}">{{i.product_price}}</span>
-                </h6>
-                <span id="divpr{{i.id}}" class="divpr">
-                  <button id="pr{{i.id}}" class="btn btn-danger cart btn-sm mt-0">
-                    AddToCart <i class="fa-solid fa-cart-shopping"></i>
-                  </button>
-                  
-                </span>
-    
-                <a href="{{i.product_image.url}}">
-                  <button class="btn btn-dark btn-sm cart"><i class="fa-solid fa-eye">View</i></button></a>
-              </div>
-            </div>
-    
-            {% endfor %}
-          </div>
-        </div>
-        {% endfor %}
- 
-        <br>
-        <button class="btn btn-dark btn-sm cart" id="load-products">Load All Products</button>
-
-        <div id="products"></div>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script>
-  $(document).ready(function() {
-    $("#load-products").click(function() {
-        $.ajax({
-            url: "{% url 'api_products' %}",
-            type: 'GET',
-            success: function(response) {
-                var products = JSON.parse(response);
-                var html = '';
-                for (var i = 0; i < products.length; i++) {
-                  html += '<p>' + products[i].fields.product_name + '</p>';
-                }
-                $("#products").html(html);
-            }
-        });
-    });
-});
-</script>
+    <!-- ======= Hero Section ======= -->
+    <section id="hero">
+      <div class="hero-container">
+        {% block body %} {% endblock body %} {% comment %}
+        <h3>Welcome to <strong>ShopFusion</strong></h3>
+        <h1>Where Convenience Meets Style!</h1>
+        <h2>Shop Smarter, Shop Faster, ShopFusion!</h2>
+        <a href="#about" class="btn-get-started scrollto">Get Started</a> {%
+        endcomment %}
       </div>
     </section>
-    <!-- End Portfolio Section -->
+    <!-- End Hero -->
 
-<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
- 
+    <main id="main">
+      <!-- ======= About Section ======= -->
+      <!-- End About Section -->
 
-<script>
-  
-  //find pout the card from local storage
+      <!-- ======= Services Section ======= -->
+      <section id="services" class="services">
+        <div class="container">{% block services%} {% endblock services%}</div>
+      </section>
+      <!-- End Features Section -->
 
-  if (localStorage.getItem('cart') == null) {
-      var cart = {};
+      <!-- ======= Portfolio Section ======= -->
+      <section id="portfolio" class="portfolio">
+        <div class="container">
+          {% for message in messages %}
 
-  } else {
-      cart = JSON.parse(localStorage.getItem('cart'));
-      updateCart(cart);
+          <div
+            class="alert alert-{{message.tags}} alert-dismissible fade show"
+            role="alert"
+          >
+            <strong>{{message}}</strong>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="alert"
+              aria-label="Close"
+            ></button>
+          </div>
+          {% endfor %}
 
-  }
-  // add or increment code
+          <div class="section-title">
+            <h2>Welcome to Shop</h2>
+            <h3>Check our <span>Products</span></h3>
+          </div>
 
-  // $('.cart').click(function() {
-  $('.divpr').on('click', 'button.cart', function() {
-      var idstr = this.id.toString();
-      console.log(idstr)
+          {% for product, range, nSlides in allProds %}
 
-      if (cart[idstr] != undefined) {
-          qty = cart[idstr][0] + 1;
+          <h3 class="my-3 text-center text-success bg-light">
+            {{product.0.product_category}} Flashsale
+          </h3>
 
-      } else {
-          qty = 1;
-          name = document.getElementById('name' + idstr).innerHTML;
-          price = document.getElementById('price' + idstr).innerHTML;
-          cart[idstr] = [qty, name, price];
-          console.log(cart);
-          
-      }
-      updateCart(cart);
+          <div class="container">
+            <div class="row">
+              {% for i in product %}
+              <div class="col-md-3 mt-3">
+                <img
+                  src="{{i.product_image.url}}"
+                  class="card-img-top"
+                  alt="Product Image"
+                  style="object-fit: cover; height: 200px; width: 150px"
+                />
+                <div class="card-body">
+                  <h5 class="card-title mt-2" id="namepr{{i.id}}">
+                    {{i.product_name}}
+                  </h5>
+                  <p class="card-text">
+                    {{i.product_description|slice:"0:53"}}...
+                  </p>
+                  <h6 class="card-title mb-3">
+                    Price:<span id="pricepr{{i.id}}">{{i.product_price}}</span>
+                  </h6>
+                  <span id="divpr{{i.id}}" class="divpr">
+                    <button
+                      id="pr{{i.id}}"
+                      class="btn btn-danger cart btn-sm mt-0"
+                    >
+                      AddToCart <i class="fa-solid fa-cart-shopping"></i>
+                    </button>
+                  </span>
 
-      localStorage.setItem('cart', JSON.stringify(cart));
-      document.getElementById('cart').innerHTML = Object.keys(cart).length;
-      console.log( Object.keys(cart).length)
-      document.getElementById("popcart").click();
-  });
-  // add pop over to cart
+                  <a href="{{i.product_image.url}}">
+                    <button class="btn btn-dark btn-sm cart">
+                      <i class="fa-solid fa-eye">View</i>
+                    </button></a
+                  >
+                </div>
+              </div>
 
-  $('#popcart').popover();
+              {% endfor %}
+            </div>
+          </div>
+          {% endfor %}
 
-  updatePopover(cart);
-  function updatePopover(cart) {
-    console.log('we are  inside update popover');
-    var popStr = "<h5> cart for your items in my shopping cart </h5> <div class='mx-2 my-2'>";
-    var i = 1;
-    for (var item in cart) {
-        var element = document.getElementById('name' + item).innerHTML;
-        if (element) {
-          popStr = popStr + "<b>" + i + "</b>. ";
-          popStr = popStr + document.getElementById('name' + item).innerHTML.slice(0, 19) + "..." + "<b>" +cart[item][0] + "</b>"+ "Qty"  + '<br>';
-          i = i + 1;
-        } else {
-            console.error('Element with id "name' + item + '" not found');
-        }
-    }
-    popStr = popStr + "</div> <a href='/checkout'>
-    <button class='btn btn-success' id='clearCart'>Checkout</button></a>  
-    <button class='btn btn-dark'  onclick='clearCart()' id='clearCart'>ClearCart</button>"
-    document.getElementById('popcart').setAttribute('data-content', popStr);
-    $('#popcart').popover('show');
-    document.getElementById("popcart").click();
-}
+          <br />
+          <button class="btn btn-dark btn-sm cart" id="load-products">
+            Load All Products
+          </button>
 
-  function clearCart() {
-      cart = JSON.parse(localStorage.getItem('cart'));
-      for (var item in cart) {
-          document.getElementById('div' + item).innerHTML = '<button id="' + item + '" class="btn btn-danger cart">AddtoCard <i class="fa-solid fa-cart-shopping"></i></button>'
-      }
-      localStorage.clear();
-      cart = {};
-      updateCart(cart);
-      
-     let clear= document.getElementById("popcart").click();
-     document.getElementById("popcart").click();
-    
-  }
+          <div id="products"></div>
 
-  function updateCart(cart) {
-      var sum = 0;
-      for (var item in cart) {
-          sum = sum + cart[item][0];
-          document.getElementById('div' + item).innerHTML = "<button id='minus" + 
-          item + "'class='btn btn-success minus'>-</button> <span id='val" + 
-          item + "''>" + cart[item][0] + "</span> <button id='plus" + 
-          item + "' class='btn btn-success plus'> + </button>";
-      }
-      localStorage.setItem('cart', JSON.stringify(cart));
-      document.getElementById('cart').innerHTML = sum;
-      console.log(cart);
-      updatePopover(cart);
-      document.getElementById("popcart").click();
-  }
-
-  //if plus or minus button is clicked change the cart as well as the display value
-  $('.divpr').on("click", "button.minus", function() {
-
-      a = this.id.slice(7, );
-      cart['pr' + a][0] = cart['pr' + a][0] - 1;
-      cart['pr' + a][0] = Math.max(0, cart['pr' + a][0]);
-      document.getElementById('valpr' + a).innerHTML = cart['pr' + a][0];
-      updateCart(cart);
-      
-
-  })
-
-
-  $('.divpr').on("click", "button.plus", function() {
-
-      a = this.id.slice(6, );
-      cart['pr' + a][0] = cart['pr' + a][0] + 1;
-
-      document.getElementById('valpr' + a).innerHTML = cart['pr' + a][0];
-      updateCart(cart);
-      
-
-  })
-</script>    
-
-    <!-- ======= F.A.Q Section ======= -->
-    <section id="faq" class="faq">
-      <div class="container">
-    
-        {% comment %} <div class="section-title">
-          <h2>F.A.Q</h2>
-          <h3>Frequently Asked <span>Questions</span></h3>
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+          <script>
+            $(document).ready(function () {
+              $("#load-products").click(function () {
+                $.ajax({
+                  url: "{% url 'api_products' %}",
+                  type: "GET",
+                  success: function (response) {
+                    var products = JSON.parse(response);
+                    var html = "";
+                    for (var i = 0; i < products.length; i++) {
+                      html += "<p>" + products[i].fields.product_name + "</p>";
+                    }
+                    $("#products").html(html);
+                  },
+                });
+              });
+            });
+          </script>
         </div>
-    
-        <ul class="faq-list">
-    
-          <li>
-            <div data-bs-toggle="collapse" class="collapsed question" href="#faq1">How can I place an order? <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
-            <div id="faq1" class="collapse" data-bs-parent=".faq-list">
-              <p>
-                Placing an order is easy! Simply browse our collection, select the items you want to purchase, and proceed to checkout. Follow the prompts to enter your shipping and payment information, and your order will be on its way.
-              </p>
-            </div>
-          </li>
-    
-          <li>
-            <div data-bs-toggle="collapse" href="#faq2" class="collapsed question">What payment methods do you accept? <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
-            <div id="faq2" class="collapse" data-bs-parent=".faq-list">
-              <p>
-                Our cash on delivery policy allows you to pay for your order with cash upon delivery. Please note that we only accept cash payments at the time of delivery. Once you receive your order, simply provide the exact amount to the delivery agent.
-              </p>
-            </div>
-          </li>
-    
-          <li>
-            <div data-bs-toggle="collapse" href="#faq3" class="collapsed question">Can I track my order? <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
-            <div id="faq3" class="collapse" data-bs-parent=".faq-list">
-              <p>
-                Yes, you can track your order using the tracking number provided in your shipping confirmation email. Simply enter the tracking number on our website or the courier's website to get real-time updates on the status of your delivery.
-              </p>
-            </div>
-          </li>
-    
-          <li>
-            <div data-bs-toggle="collapse" href="#faq4" class="collapsed question">What is your return policy? <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
-            <div id="faq4" class="collapse" data-bs-parent=".faq-list">
-              <p>
-                We offer a hassle-free return policy. If you're not satisfied with your purchase for any reason, simply contact our customer support team within [number] days of receiving your order to initiate the return process. Please note that certain conditions may apply.
-              </p>
-            </div>
-          </li>
-    
-          <li>
-            <div data-bs-toggle="collapse" href="#faq5" class="collapsed question">Do you ship internationally? <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
-            <div id="faq5" class="collapse" data-bs-parent=".faq-list">
-              <p>
-                Yes, we ship internationally to select countries. During checkout, you'll have the option to choose your preferred shipping method and delivery address. Please note that international shipping fees and delivery times may vary.
-              </p>
-            </div>
-          </li>
-    
-          <li>
-            <div data-bs-toggle="collapse" href="#faq6" class="collapsed question">How can I contact customer support? <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
-            <div id="faq6" class="collapse" data-bs-parent=".faq-list">
-              <p>
-                Our customer support team is available to assist you with any questions or concerns you may have. You can reach us via email, phone, or live chat during our business hours. We're here to help!
-              </p>
-            </div>
-          </li>
-    
-        </ul> {% endcomment %}
-    
-      </div>
-    </section><!-- End F.A.Q Section -->
-     
+      </section>
+      <!-- End Portfolio Section -->
 
-    <!-- ======= Team Section ======= -->
-    <section id="team" class="team">
-      <div class="container">
+      <script
+        src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"
+      ></script>
+      <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"
+      ></script>
+      <script
+        src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"
+      ></script>
 
-      </div>
-    </section><!-- End Team Section -->
+      <script>
 
-    
+          //find pout the card from local storage
 
-  </main><!-- End #main -->
+          if (localStorage.getItem('cart') == null) {
+              var cart = {};
 
-</body>
+          } else {
+              cart = JSON.parse(localStorage.getItem('cart'));
+              updateCart(cart);
 
+          }
+          // add or increment code
+
+          // $('.cart').click(function() {
+          $('.divpr').on('click', 'button.cart', function() {
+              var idstr = this.id.toString();
+              console.log(idstr)
+
+              if (cart[idstr] != undefined) {
+                  qty = cart[idstr][0] + 1;
+
+              } else {
+                  qty = 1;
+                  name = document.getElementById('name' + idstr).innerHTML;
+                  price = document.getElementById('price' + idstr).innerHTML;
+                  cart[idstr] = [qty, name, price];
+                  console.log(cart);
+
+              }
+              updateCart(cart);
+
+              localStorage.setItem('cart', JSON.stringify(cart));
+              document.getElementById('cart').innerHTML = Object.keys(cart).length;
+              console.log( Object.keys(cart).length)
+              document.getElementById("popcart").click();
+          });
+          // add pop over to cart
+
+          $('#popcart').popover();
+
+          updatePopover(cart);
+          function updatePopover(cart) {
+            console.log('we are  inside update popover');
+            var popStr = "<h5> cart for your items in my shopping cart </h5> <div class='mx-2 my-2'>";
+            var i = 1;
+            for (var item in cart) {
+                var element = document.getElementById('name' + item).innerHTML;
+                if (element) {
+                  popStr = popStr + "<b>" + i + "</b>. ";
+                  popStr = popStr + document.getElementById('name' + item).innerHTML.slice(0, 19) + "..." + "<b>" +cart[item][0] + "</b>"+ "Qty"  + '<br>';
+                  i = i + 1;
+                } else {
+                    console.error('Element with id "name' + item + '" not found');
+                }
+            }
+            popStr = popStr + "</div> <a href='/checkout'>
+            <button class='btn btn-success' id='clearCart'>Checkout</button></a>
+            <button class='btn btn-dark'  onclick='clearCart()' id='clearCart'>ClearCart</button>"
+            document.getElementById('popcart').setAttribute('data-content', popStr);
+            $('#popcart').popover('show');
+            document.getElementById("popcart").click();
+        }
+
+          function clearCart() {
+              cart = JSON.parse(localStorage.getItem('cart'));
+              for (var item in cart) {
+                  document.getElementById('div' + item).innerHTML = '<button id="' + item + '" class="btn btn-danger cart">AddtoCard <i class="fa-solid fa-cart-shopping"></i></button>'
+              }
+              localStorage.clear();
+              cart = {};
+              updateCart(cart);
+
+             let clear= document.getElementById("popcart").click();
+             document.getElementById("popcart").click();
+
+          }
+
+          function updateCart(cart) {
+              var sum = 0;
+              for (var item in cart) {
+                  sum = sum + cart[item][0];
+                  document.getElementById('div' + item).innerHTML = "<button id='minus" +
+                  item + "'class='btn btn-success minus'>-</button> <span id='val" +
+                  item + "''>" + cart[item][0] + "</span> <button id='plus" +
+                  item + "' class='btn btn-success plus'> + </button>";
+              }
+              localStorage.setItem('cart', JSON.stringify(cart));
+              document.getElementById('cart').innerHTML = sum;
+              console.log(cart);
+              updatePopover(cart);
+              document.getElementById("popcart").click();
+          }
+
+          //if plus or minus button is clicked change the cart as well as the display value
+          $('.divpr').on("click", "button.minus", function() {
+
+              a = this.id.slice(7, );
+              cart['pr' + a][0] = cart['pr' + a][0] - 1;
+              cart['pr' + a][0] = Math.max(0, cart['pr' + a][0]);
+              document.getElementById('valpr' + a).innerHTML = cart['pr' + a][0];
+              updateCart(cart);
+
+
+          })
+
+
+          $('.divpr').on("click", "button.plus", function() {
+
+              a = this.id.slice(6, );
+              cart['pr' + a][0] = cart['pr' + a][0] + 1;
+
+              document.getElementById('valpr' + a).innerHTML = cart['pr' + a][0];
+              updateCart(cart);
+
+
+          })
+      </script>
+
+      <!-- ======= F.A.Q Section ======= -->
+      <section id="faq" class="faq">
+        <div class="container">
+          {% comment %}
+          <div class="section-title">
+            <h2>F.A.Q</h2>
+            <h3>Frequently Asked <span>Questions</span></h3>
+          </div>
+
+          <ul class="faq-list">
+            <li>
+              <div
+                data-bs-toggle="collapse"
+                class="collapsed question"
+                href="#faq1"
+              >
+                How can I place an order?
+                <i class="bi bi-chevron-down icon-show"></i
+                ><i class="bi bi-chevron-up icon-close"></i>
+              </div>
+              <div id="faq1" class="collapse" data-bs-parent=".faq-list">
+                <p>
+                  Placing an order is easy! Simply browse our collection, select
+                  the items you want to purchase, and proceed to checkout.
+                  Follow the prompts to enter your shipping and payment
+                  information, and your order will be on its way.
+                </p>
+              </div>
+            </li>
+
+            <li>
+              <div
+                data-bs-toggle="collapse"
+                href="#faq2"
+                class="collapsed question"
+              >
+                What payment methods do you accept?
+                <i class="bi bi-chevron-down icon-show"></i
+                ><i class="bi bi-chevron-up icon-close"></i>
+              </div>
+              <div id="faq2" class="collapse" data-bs-parent=".faq-list">
+                <p>
+                  Our cash on delivery policy allows you to pay for your order
+                  with cash upon delivery. Please note that we only accept cash
+                  payments at the time of delivery. Once you receive your order,
+                  simply provide the exact amount to the delivery agent.
+                </p>
+              </div>
+            </li>
+
+            <li>
+              <div
+                data-bs-toggle="collapse"
+                href="#faq3"
+                class="collapsed question"
+              >
+                Can I track my order?
+                <i class="bi bi-chevron-down icon-show"></i
+                ><i class="bi bi-chevron-up icon-close"></i>
+              </div>
+              <div id="faq3" class="collapse" data-bs-parent=".faq-list">
+                <p>
+                  Yes, you can track your order using the tracking number
+                  provided in your shipping confirmation email. Simply enter the
+                  tracking number on our website or the courier's website to get
+                  real-time updates on the status of your delivery.
+                </p>
+              </div>
+            </li>
+
+            <li>
+              <div
+                data-bs-toggle="collapse"
+                href="#faq4"
+                class="collapsed question"
+              >
+                What is your return policy?
+                <i class="bi bi-chevron-down icon-show"></i
+                ><i class="bi bi-chevron-up icon-close"></i>
+              </div>
+              <div id="faq4" class="collapse" data-bs-parent=".faq-list">
+                <p>
+                  We offer a hassle-free return policy. If you're not satisfied
+                  with your purchase for any reason, simply contact our customer
+                  support team within [number] days of receiving your order to
+                  initiate the return process. Please note that certain
+                  conditions may apply.
+                </p>
+              </div>
+            </li>
+
+            <li>
+              <div
+                data-bs-toggle="collapse"
+                href="#faq5"
+                class="collapsed question"
+              >
+                Do you ship internationally?
+                <i class="bi bi-chevron-down icon-show"></i
+                ><i class="bi bi-chevron-up icon-close"></i>
+              </div>
+              <div id="faq5" class="collapse" data-bs-parent=".faq-list">
+                <p>
+                  Yes, we ship internationally to select countries. During
+                  checkout, you'll have the option to choose your preferred
+                  shipping method and delivery address. Please note that
+                  international shipping fees and delivery times may vary.
+                </p>
+              </div>
+            </li>
+
+            <li>
+              <div
+                data-bs-toggle="collapse"
+                href="#faq6"
+                class="collapsed question"
+              >
+                How can I contact customer support?
+                <i class="bi bi-chevron-down icon-show"></i
+                ><i class="bi bi-chevron-up icon-close"></i>
+              </div>
+              <div id="faq6" class="collapse" data-bs-parent=".faq-list">
+                <p>
+                  Our customer support team is available to assist you with any
+                  questions or concerns you may have. You can reach us via
+                  email, phone, or live chat during our business hours. We're
+                  here to help!
+                </p>
+              </div>
+            </li>
+          </ul>
+          {% endcomment %}
+        </div>
+      </section>
+      <!-- End F.A.Q Section -->
+
+      <!-- ======= Team Section ======= -->
+      <section id="team" class="team">
+        <div class="container"></div>
+      </section>
+      <!-- End Team Section -->
+    </main>
+    <!-- End #main -->
+  </body>
 </html>
