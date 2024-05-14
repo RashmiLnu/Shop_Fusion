@@ -1,3 +1,5 @@
+from django.contrib import messages
+from .models import ContactUs
 from math import ceil
 from django.contrib import messages
 from django.shortcuts import redirect, render
@@ -5,6 +7,19 @@ from index_app.models import OrderUpdate, Orders, Product
 from index_app.models import Orders
 from django.http import JsonResponse
 from django.core import serializers
+
+
+def contact_us(request):
+    if request.method == "POST":
+        name = request.POST.get("name")
+        email = request.POST.get("email")
+        message_type = request.POST.get("message_type")
+        other_message = request.POST.get("other_message")
+        contact_us = ContactUs(name=name, email=email, message_type=message_type, other_message=other_message)
+        contact_us.save()
+        messages.info(request, "Your message has been sent successfully")
+        return render(request, "contact_us.html")
+    return render(request, "contact_us.html")
 
 def home(request):
     allProds = []
@@ -67,15 +82,9 @@ def checkout(request):
 
 # @csrf_exempt
 def handlerequest(request,param_dict):
-    # paytm will send you post request here
-    # form = request.POST
+   
     response_dict = {'RESPCODE':'01'}
-    # for i in form.keys():
-    #     response_dict[i] = form[i]
-    #     if i == 'CHECKSUMHASH':
-    #         checksum = form[i]
-
-    # verify = Checksum.verify_checksum(response_dict, MERCHANT_KEY, checksum)
+    
     verify = True
     if verify:
         if response_dict['RESPCODE'] == '01':
