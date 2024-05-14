@@ -1,2 +1,29 @@
-{% extends 'base.html' %}
-{% block title %} About {% endblock title %}
+{% extends "base.html" %}
+
+{% block body %}
+  <div class="hero-about bg-white p-5">
+    <div class="header-content">
+      <h2 class="text-black text-uppercase">About Us</h2>
+      <h3><span class="text-black">Learn More About Our Story</span></h3>
+      <p class="text-black">Welcome to ShopFusion, your premier destination for online shopping! Our mission is to provide you with an exceptional shopping experience, offering a wide range of products across various categories.</p>
+    </div>
+
+    <div class="row about-features">
+      <div class="col-lg-6 feature-column">
+        <p class="text-black">
+          At ShopFusion, we believe in making shopping convenient and enjoyable for our customers.
+        </p>
+        <ul class="list-checkmarks">
+          <li><i class="ri-check-double-line text-pink"></i> Explore our extensive collection of products from trusted brands</li>
+          <li><i class="ri-check-double-line text-pink"></i> Enjoy hassle-free shopping with secure payment options</li>
+          <li><i class="ri-check-double-line text-pink"></i> Experience fast and reliable delivery straight to your doorstep</li>
+        </ul>
+      </div>
+      <div class="col-lg-6 pt-4 pt-lg-0 feature-column">
+        <p class="text-black">
+          Whether you're looking for fashion essentials, home decor, electronics, or more, ShopFusion has you covered.
+        </p>
+      </div>
+    </div>
+  </div>
+{% endblock body %}

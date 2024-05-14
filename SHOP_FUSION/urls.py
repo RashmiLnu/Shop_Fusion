@@ -18,11 +18,18 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.urls import include
+from django.conf import settings
 from SHOP_FUSION import views
+from django.conf.urls.static import static
+
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include("index_app.urls")),
     path("about/", views.about, name="about"),
+    path("home/", views.home, name="home"),
     path("authCart/", include("authCart.urls")),
-]
+    path("team/", views.team, name="team"),
+    path("profile/", views.profile, name = "profile"),
+    path("product_api/", views.product_api, name="product_api")
+]+ static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
