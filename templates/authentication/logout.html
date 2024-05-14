@@ -1,1 +1,14 @@
 {% extends "base.html" %}
+{% block body %}
+<div class="card bg-light p-5">
+    {% if messages %}
+    <script>
+        {% for message in messages %}
+            alert("{{ message }}");
+        {% endfor %}
+    </script>
+    {% endif %}
+    <h1 class="text-dark">Logout</h1>
+    <!-- You can add a simple message here if needed -->
+</div>
+{% endblock body %}

@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "index_app",
     "authCart",
+    
 ]
 
 MIDDLEWARE = [
@@ -49,6 +50,9 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    'SHOP_FUSION.my_middleware.CustomHeaderMiddleware',
+    'SHOP_FUSION.my_middleware.MaintenanceModeMiddleware',
+   
 ]
 
 ROOT_URLCONF = "SHOP_FUSION.urls"
@@ -122,6 +126,9 @@ STATIC_URL = "static/"
 STATICFILES_DIRS= [
     os.path.join(BASE_DIR, "static"),
 ]
+
+MEDIA_URL = "/media/"
+MEDIA_ROOT = os.path.join(BASE_DIR, "media") 
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field

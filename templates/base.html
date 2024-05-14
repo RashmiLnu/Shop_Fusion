@@ -1,3 +1,4 @@
+
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -44,19 +45,26 @@
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top ">
     <div class="container d-flex align-items-center justify-content-between">
-      <h1 class="logo"><a href="index.html">ShopFusion</a></h1>
+      <h1 class="logo"><a href="/">ShopFusion</a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo"><img src="{% static 'assets/img/logo.png' %}" alt="" class="img-fluid"></a>-->
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="#about">About</a></li>
-          <li><a class="nav-link scrollto" href="#services">Services</a></li>
-          <li><a class="nav-link scrollto " href="#portfolio">Portfolio</a></li>
+          <!-- <li><a class="nav-link scrollto active" href="/home">Home</a></li> -->
+          <li><a class="nav-link scrollto" href="/about">About</a></li>
+          <li><a class="nav-link scrollto" href="/checkout#services">Checkout</a></li>
+          <!-- <li><a class="nav-link scrollto " href="/products">Products</a></li> -->
+          <!-- <li><a class="nav-link scrollto" href="#portfolio">Products</a></li> -->
+          <li><a class="nav-link scrollto" href="/profile">My Profile</a></li>
+          {% comment %} <li><a class="nav-link scrollto " href="/checkout">Checkout</a></li> {% endcomment %}
           <li><a class="nav-link scrollto " href="/product_api">Product_API</a></li>
           <li><a class="nav-link scrollto" href="/team">Team</a></li>
-          <li class="dropdown"><a href="#"><span>Cart</span> <i class="bi bi-chevron-down"></i></a>
+          <button type="button" class="nav-link scrollto bg-danger p-3 m-2 text-white" 
+          id="popcart" data-container="body" 
+          data-toggle="popover" data-placement="bottom" data-html="true" >
+          <i class="fa-solid fa-cart-shopping"></i>  Cart (<span id="cart">0</span>)
+          </button>
 
             {% if request.user.is_authenticated %}
 
@@ -67,7 +75,7 @@
           <li class="dropdown"><a href="#"><span>SIGN UP</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="/authCart/signup">SIGN UP</a></li>
-              <li><a href="#">Logout</a></li>
+              <!-- <li><a href="#">Logout</a></li> -->
               <li><a href="/authCart/login">Login</a></li>
             </ul>
 
@@ -79,6 +87,19 @@
       </nav><!-- .navbar -->
 
     </div>
+    {% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}" role="alert">
+            {{ message }}
+            <script>
+                setTimeout(function() {
+                    document.querySelector('.alert').remove();
+                }, 5000); 
+            </script>
+        </div>
+    {% endfor %}
+{% endif %}
+
   </header><!-- End Header -->
 
   <!-- ======= Hero Section ======= -->
@@ -97,164 +118,14 @@
   <main id="main">
 
     <!-- ======= About Section ======= -->
-    <section id="about" class="about">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>About</h2>
-          <h3>Learn More <span>About Us</span></h3>
-          <p>Welcome to ShopFusion, your premier destination for online shopping! Our mission is to provide you with an exceptional shopping experience, offering a wide range of products across various categories.</p>
-        </div>
-
-        <div class="row content">
-          <div class="col-lg-6">
-            <p>
-              At ShopFusion, we believe in making shopping convenient and enjoyable for our customers.
-            </p>
-            <ul>
-              <li><i class="ri-check-double-line"></i> Explore our extensive collection of products from trusted brands</li>
-              <li><i class="ri-check-double-line"></i> Enjoy hassle-free shopping with secure payment options</li>
-              <li><i class="ri-check-double-line"></i> Experience fast and reliable delivery straight to your doorstep</li>
-            </ul>
-          </div>
-          <div class="col-lg-6 pt-4 pt-lg-0">
-            <p>
-              Whether you're looking for fashion essentials, home decor, electronics, or more, ShopFusion has you covered.
-            </p>
-            <a href="#" class="btn-learn-more">Learn More</a>
-          </div>
-        </div>
-
-      </div>
-    </section><!-- End About Section -->
+    <!-- End About Section -->
 
     <!-- ======= Services Section ======= -->
     <section id="services" class="services">
       <div class="container">
-
-        <div class="section-title">
-          <h2>Services</h2>
-          <h3>We offer <span>Awesome Services</span></h3>
-          <p>Welcome to ShopFusion, where we provide a range of services to enhance your online shopping experience!</p>
-        </div>
-    
-        <div class="row">
-          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
-            <div class="icon-box">
-              <div class="icon"><i class="bx bxl-dribbble"></i></div>
-              <h4 class="title"><a href="">Fast Delivery</a></h4>
-              <p class="description">Enjoy swift and reliable delivery straight to your doorstep, so you can start enjoying your purchases sooner.</p>
-            </div>
-          </div>
-    
-          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
-            <div class="icon-box">
-              <div class="icon"><i class="bx bx-file"></i></div>
-              <h4 class="title"><a href="">Secure Payments</a></h4>
-              <p class="description">Shop with confidence using our secure payment options, ensuring your transactions are safe and protected.</p>
-            </div>
-          </div>
-    
-          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
-            <div class="icon-box">
-              <div class="icon"><i class="bx bx-tachometer"></i></div>
-              <h4 class="title"><a href="">Customer Support</a></h4>
-              <p class="description">Our dedicated customer support team is here to assist you every step of the way, providing prompt and friendly assistance for all your inquiries.</p>
-            </div>
-          </div>
-    
-          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
-            <div class="icon-box">
-              <div class="icon"><i class="bx bx-world"></i></div>
-              <h4 class="title"><a href="">Product Variety</a></h4>
-              <p class="description">Discover a diverse range of products across various categories, ensuring there's something for everyone at ShopFusion.</p>
-            </div>
-          </div>
-    
-        </div>
-    
-
-      </div>
-    </section><!-- End Services Section -->
-
-    <!-- ======= Features Section ======= -->
-    <section id="features" class="features">
-      <div class="container">
-    
-        <div class="row">
-          <div class="col-lg-3 col-md-4 col-6 col-6">
-            <div class="icon-box">
-              <i class="ri-store-line" style="color: #ffbb2c;"></i>
-              <h3><a href="">Wide Range of Products</a></h3>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-4 col-6">
-            <div class="icon-box">
-              <i class="ri-bar-chart-box-line" style="color: #5578ff;"></i>
-              <h3><a href="">User-friendly Interface</a></h3>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-4 col-6 mt-4 mt-md-0">
-            <div class="icon-box">
-              <i class="ri-calendar-todo-line" style="color: #e80368;"></i>
-              <h3><a href="">Secure Transactions</a></h3>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-4 col-6 mt-4 mt-lg-0">
-            <div class="icon-box">
-              <i class="ri-paint-brush-line" style="color: #e361ff;"></i>
-              <h3><a href="">Fast Delivery</a></h3>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-4 col-6 mt-4">
-            <div class="icon-box">
-              <i class="ri-database-2-line" style="color: #47aeff;"></i>
-              <h3><a href="">Responsive Customer Support</a></h3>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-4 col-6 mt-4">
-            <div class="icon-box">
-              <i class="ri-gradienter-line" style="color: #ffa76e;"></i>
-              <h3><a href="">Convenient Shopping Experience</a></h3>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-4 col-6 mt-4">
-            <div class="icon-box">
-              <i class="ri-file-list-3-line" style="color: #11dbcf;"></i>
-              <h3><a href="">Flexible Payment Options</a></h3>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-4 col-6 mt-4">
-            <div class="icon-box">
-              <i class="ri-price-tag-2-line" style="color: #4233ff;"></i>
-              <h3><a href="">Exclusive Deals and Discounts</a></h3>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-4 col-6 mt-4">
-            <div class="icon-box">
-              <i class="ri-anchor-line" style="color: #b2904f;"></i>
-              <h3><a href="">Quality Assurance</a></h3>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-4 col-6 mt-4">
-            <div class="icon-box">
-              <i class="ri-disc-line" style="color: #b20969;"></i>
-              <h3><a href="">Easy Returns and Refunds</a></h3>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-4 col-6 mt-4">
-            <div class="icon-box">
-              <i class="ri-base-station-line" style="color: #ff5828;"></i>
-              <h3><a href="">Efficient Order Tracking</a></h3>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-4 col-6 mt-4">
-            <div class="icon-box">
-              <i class="ri-fingerprint-line" style="color: #29cc61;"></i>
-              <h3><a href="">Satisfaction Guaranteed</a></h3>
-            </div>
-          </div>
-        </div>
+        {% block services%}
+        {% endblock services%}
+       
     
       </div>
     </section><!-- End Features Section -->
@@ -263,126 +134,219 @@
     <!-- ======= Portfolio Section ======= -->
     <section id="portfolio" class="portfolio">
       <div class="container">
-
+        {% for message in messages %}
+    
+        <div
+          class="alert alert-{{message.tags}} alert-dismissible fade show"
+          role="alert"
+        >
+          <strong>{{message}}</strong>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="alert"
+            aria-label="Close"
+          ></button>
+        </div>
+        {% endfor %}
+    
         <div class="section-title">
-          <h2>Portfolio</h2>
-          <h3>Check our <span>Portfolio</span></h3>
-          <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque vitae autem.</p>
+          <h2>Welcome to Shop</h2>
+          <h3>Check our <span>Products</span></h3>
         </div>
-
-        <div class="row">
-          <div class="col-lg-12 d-flex justify-content-center">
-            <ul id="portfolio-flters">
-              <li data-filter="*" class="filter-active">All</li>
-              <li data-filter=".filter-app">App</li>
-              <li data-filter=".filter-card">Card</li>
-              <li data-filter=".filter-web">Web</li>
-            </ul>
+    
+        {% for product, range, nSlides in allProds %}
+    
+        <h3 class="my-3 text-center text-success bg-light">
+          {{product.0.product_category}} Flashsale
+        </h3>
+    
+        <div class="container">
+          <div class="row">
+    
+            {% for i in product %}
+            <div class="col-md-3 mt-3">
+              <img src="{{i.product_image.url}}" class="card-img-top" alt="Product Image" style="object-fit: cover; height: 200px; width: 150px;" />
+              <div class="card-body">
+                <h5 class="card-title mt-2" id="namepr{{i.id}}">{{i.product_name}}</h5>
+                <p class="card-text">{{i.product_description|slice:"0:53"}}...</p>
+                <h6 class="card-title mb-3">
+                  Price:<span id="pricepr{{i.id}}">{{i.product_price}}</span>
+                </h6>
+                <span id="divpr{{i.id}}" class="divpr">
+                  <button id="pr{{i.id}}" class="btn btn-danger cart btn-sm mt-0">
+                    AddToCart <i class="fa-solid fa-cart-shopping"></i>
+                  </button>
+                  
+                </span>
+    
+                <a href="{{i.product_image.url}}">
+                  <button class="btn btn-dark btn-sm cart"><i class="fa-solid fa-eye">View</i></button></a>
+              </div>
+            </div>
+    
+            {% endfor %}
           </div>
         </div>
+        {% endfor %}
+ 
+        <br>
+        <button class="btn btn-dark btn-sm cart" id="load-products">Load All Products</button>
 
-        <div class="row portfolio-container">
+        <div id="products"></div>
 
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <img src="{% static 'assets/img/portfolio/portfolio-1.jpg' %}" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>App 1</h4>
-              <p>App</p>
-              <a href="{% static 'assets/img/portfolio/portfolio-1.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 1"><i class="bx bx-plus"></i></a>
-              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <img src="{% static 'assets/img/portfolio/portfolio-2.jpg' %}" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Web 3</h4>
-              <p>Web</p>
-              <a href="{% static 'assets/img/portfolio/portfolio-2.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Web 3"><i class="bx bx-plus"></i></a>
-              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <img src="{% static 'assets/img/portfolio/portfolio-3.jpg' %}" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>App 2</h4>
-              <p>App</p>
-              <a href="{% static 'assets/img/portfolio/portfolio-3.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 2"><i class="bx bx-plus"></i></a>
-              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <img src="{% static 'assets/img/portfolio/portfolio-4.jpg' %}" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Card 2</h4>
-              <p>Card</p>
-              <a href="{% static 'assets/img/portfolio/portfolio-4.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 2"><i class="bx bx-plus"></i></a>
-              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <img src="{% static 'assets/img/portfolio/portfolio-5.jpg' %}" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Web 2</h4>
-              <p>Web</p>
-              <a href="{% static 'assets/img/portfolio/portfolio-5.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Web 2"><i class="bx bx-plus"></i></a>
-              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <img src="{% static 'assets/img/portfolio/portfolio-6.jpg' %}" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>App 3</h4>
-              <p>App</p>
-              <a href="{% static 'assets/img/portfolio/portfolio-6.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 3"><i class="bx bx-plus"></i></a>
-              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <img src="{% static 'assets/img/portfolio/portfolio-7.jpg' %}" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Card 1</h4>
-              <p>Card</p>
-              <a href="{% static 'assets/img/portfolio/portfolio-7.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 1"><i class="bx bx-plus"></i></a>
-              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <img src="{% static 'assets/img/portfolio/portfolio-8.jpg' %}" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Card 3</h4>
-              <p>Card</p>
-              <a href="{% static 'assets/img/portfolio/portfolio-8.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 3"><i class="bx bx-plus"></i></a>
-              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <img src="{% static 'assets/img/portfolio/portfolio-9.jpg' %}" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Web 3</h4>
-              <p>Web</p>
-              <a href="{% static 'assets/img/portfolio/portfolio-9.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Web 3"><i class="bx bx-plus"></i></a>
-              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-            </div>
-          </div>
-
-        </div>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+  $(document).ready(function() {
+    $("#load-products").click(function() {
+        $.ajax({
+            url: "{% url 'api_products' %}",
+            type: 'GET',
+            success: function(response) {
+                var products = JSON.parse(response);
+                var html = '';
+                for (var i = 0; i < products.length; i++) {
+                  html += '<p>' + products[i].fields.product_name + '</p>';
+                }
+                $("#products").html(html);
+            }
+        });
+    });
+});
+</script>
       </div>
-    </section><!-- End Portfolio Section -->
+    </section>
+    <!-- End Portfolio Section -->
+
+<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+ 
+
+<script>
+  
+  //find pout the card from local storage
+
+  if (localStorage.getItem('cart') == null) {
+      var cart = {};
+
+  } else {
+      cart = JSON.parse(localStorage.getItem('cart'));
+      updateCart(cart);
+
+  }
+  // add or increment code
+
+  // $('.cart').click(function() {
+  $('.divpr').on('click', 'button.cart', function() {
+      var idstr = this.id.toString();
+      console.log(idstr)
+
+      if (cart[idstr] != undefined) {
+          qty = cart[idstr][0] + 1;
+
+      } else {
+          qty = 1;
+          name = document.getElementById('name' + idstr).innerHTML;
+          price = document.getElementById('price' + idstr).innerHTML;
+          cart[idstr] = [qty, name, price];
+          console.log(cart);
+          
+      }
+      updateCart(cart);
+
+      localStorage.setItem('cart', JSON.stringify(cart));
+      document.getElementById('cart').innerHTML = Object.keys(cart).length;
+      console.log( Object.keys(cart).length)
+      document.getElementById("popcart").click();
+  });
+  // add pop over to cart
+
+  $('#popcart').popover();
+
+  updatePopover(cart);
+  function updatePopover(cart) {
+    console.log('we are  inside update popover');
+    var popStr = "<h5> cart for your items in my shopping cart </h5> <div class='mx-2 my-2'>";
+    var i = 1;
+    for (var item in cart) {
+        var element = document.getElementById('name' + item).innerHTML;
+        if (element) {
+          popStr = popStr + "<b>" + i + "</b>. ";
+          popStr = popStr + document.getElementById('name' + item).innerHTML.slice(0, 19) + "..." + "<b>" +cart[item][0] + "</b>"+ "Qty"  + '<br>';
+          i = i + 1;
+        } else {
+            console.error('Element with id "name' + item + '" not found');
+        }
+    }
+    popStr = popStr + "</div> <a href='/checkout'>
+    <button class='btn btn-success' id='clearCart'>Checkout</button></a>  
+    <button class='btn btn-dark'  onclick='clearCart()' id='clearCart'>ClearCart</button>"
+    document.getElementById('popcart').setAttribute('data-content', popStr);
+    $('#popcart').popover('show');
+    document.getElementById("popcart").click();
+}
+
+  function clearCart() {
+      cart = JSON.parse(localStorage.getItem('cart'));
+      for (var item in cart) {
+          document.getElementById('div' + item).innerHTML = '<button id="' + item + '" class="btn btn-danger cart">AddtoCard <i class="fa-solid fa-cart-shopping"></i></button>'
+      }
+      localStorage.clear();
+      cart = {};
+      updateCart(cart);
+      
+     let clear= document.getElementById("popcart").click();
+     document.getElementById("popcart").click();
+    
+  }
+
+  function updateCart(cart) {
+      var sum = 0;
+      for (var item in cart) {
+          sum = sum + cart[item][0];
+          document.getElementById('div' + item).innerHTML = "<button id='minus" + 
+          item + "'class='btn btn-success minus'>-</button> <span id='val" + 
+          item + "''>" + cart[item][0] + "</span> <button id='plus" + 
+          item + "' class='btn btn-success plus'> + </button>";
+      }
+      localStorage.setItem('cart', JSON.stringify(cart));
+      document.getElementById('cart').innerHTML = sum;
+      console.log(cart);
+      updatePopover(cart);
+      document.getElementById("popcart").click();
+  }
+
+  //if plus or minus button is clicked change the cart as well as the display value
+  $('.divpr').on("click", "button.minus", function() {
+
+      a = this.id.slice(7, );
+      cart['pr' + a][0] = cart['pr' + a][0] - 1;
+      cart['pr' + a][0] = Math.max(0, cart['pr' + a][0]);
+      document.getElementById('valpr' + a).innerHTML = cart['pr' + a][0];
+      updateCart(cart);
+      
+
+  })
+
+
+  $('.divpr').on("click", "button.plus", function() {
+
+      a = this.id.slice(6, );
+      cart['pr' + a][0] = cart['pr' + a][0] + 1;
+
+      document.getElementById('valpr' + a).innerHTML = cart['pr' + a][0];
+      updateCart(cart);
+      
+
+  })
+</script>    
 
     <!-- ======= F.A.Q Section ======= -->
     <section id="faq" class="faq">
       <div class="container">
     
-        <div class="section-title">
+        {% comment %} <div class="section-title">
           <h2>F.A.Q</h2>
           <h3>Frequently Asked <span>Questions</span></h3>
         </div>
@@ -443,7 +407,7 @@
             </div>
           </li>
     
-        </ul>
+        </ul> {% endcomment %}
     
       </div>
     </section><!-- End F.A.Q Section -->
